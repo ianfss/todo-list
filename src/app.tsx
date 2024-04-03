@@ -29,12 +29,18 @@ export function App() {
     }])
   }
 
+  function handleDeleteTask(taskToDelete: string) {
+    const tasksWithoutDeletedTask = tasks.filter(task => task.text !== taskToDelete)
+
+    setTasks(tasksWithoutDeletedTask)
+  }
+
   return (
     <div>
       <Header />
       <div className={styles.wrapper}>
         <NewTaskForm onCreateTask={handleCreateTask} />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} />
       </div>
     </div>
   )
