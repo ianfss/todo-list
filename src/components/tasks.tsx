@@ -13,16 +13,19 @@ interface TasksProps {
 }
 
 export function Tasks({ tasks, onDeleteTask, onCompleteTask }: TasksProps) {
+  const allTasks = tasks.length
+  const completedTasks = tasks.filter(task => task.isCompleted).length
+
   return (
     <div>
       <div className={styles.taskCount}>
         <div className={styles.createdTaskCount}>
           <strong>Tarefas criadas</strong>
-          <span>0</span>
+          <span>{allTasks}</span>
         </div>
         <div className={styles.completedTaskCount}>
           <strong>Concluídas</strong>
-          <span>0</span>
+          <span>{completedTasks}</span>
         </div>
       </div>
 
