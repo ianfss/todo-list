@@ -24,6 +24,8 @@ export function NewTaskForm({ onCreateTask }: NewTaskFormProps) {
     setNewTaskContent(event.target.value)
   }
 
+  const isNewTaskButtonDisabled = newTaskContent.length === 0
+
   return (
     <form onSubmit={handleCreateNewTask} className={styles.newTaskForm}>
       <input
@@ -37,6 +39,7 @@ export function NewTaskForm({ onCreateTask }: NewTaskFormProps) {
       <button
         className={styles.newTaskButton}
         type="submit"
+        disabled={isNewTaskButtonDisabled}
       >
         Criar
         <PlusCircledIcon />

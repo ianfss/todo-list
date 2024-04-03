@@ -9,9 +9,10 @@ interface TasksProps {
     isCompleted: boolean
   }[],
   onDeleteTask: (taskToDelete: string) => void
+  onCompleteTask: (taskToComplete: string) => void
 }
 
-export function Tasks({ tasks, onDeleteTask }: TasksProps) {
+export function Tasks({ tasks, onDeleteTask, onCompleteTask }: TasksProps) {
   return (
     <div>
       <div className={styles.taskCount}>
@@ -29,7 +30,7 @@ export function Tasks({ tasks, onDeleteTask }: TasksProps) {
         tasks.length > 0
           ?
           tasks.map(task => (
-            <Task key={task.text} content={task.text} onDeleteTask={onDeleteTask}  />
+            <Task key={task.text} content={task.text} onDeleteTask={onDeleteTask} onCompleteTask={onCompleteTask} isCompleted={task.isCompleted} />
           ))
           :
           <TasksEmptyState />

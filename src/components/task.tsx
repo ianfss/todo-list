@@ -1,22 +1,33 @@
 import { TrashIcon } from '@radix-ui/react-icons'
+
 import styles from './task.module.css'
 
 interface TaskProps {
   onDeleteTask: (taskToDelete: string) => void
+  onCompleteTask: (taskToComplete: string) => void
   content: string
-  // isCompleted: boolean
+  isCompleted: boolean
 }
 
-export function Task({ content, onDeleteTask }: TaskProps) {
+export function Task({ content, onDeleteTask, onCompleteTask, isCompleted }: TaskProps) {
 
   function handleDeleteTask() {
     onDeleteTask(content)
   }
 
+  function handleCompleteTask() {
+    onCompleteTask(content)
+  }
+
   return (
     <div className={styles.task}>
-      <input type="checkbox" />
-      <span>{content}</span>
+      <label className={styles.checkmarkContainer}>
+        <input type="checkbox" checked={isCompleted} onChange={handleCompleteTask} />
+        <span className={styles.checkmark} />
+      </label>
+
+      <span className={`${isCompleted ? styles.taskCompleted : styles.taskContent}`}>{content}</span>
+
       <button
         onClick={handleDeleteTask}
         type='button'

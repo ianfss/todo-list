@@ -14,7 +14,7 @@ export function App() {
     },
     {
       text: 'Fazer o desafio de React do Ignite',
-      isCompleted: false
+      isCompleted: true
     },
     {
       text: 'Assistir aula de React Native',
@@ -35,12 +35,27 @@ export function App() {
     setTasks(tasksWithoutDeletedTask)
   }
 
+  function handleCompleteTask(taskToComplete: string) {
+    const updatedTasks = tasks.map(task => {
+      if (task.text === taskToComplete) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted
+        }
+      }
+
+      return task
+    })
+    
+    setTasks(updatedTasks)
+  }
+
   return (
     <div>
       <Header />
       <div className={styles.wrapper}>
         <NewTaskForm onCreateTask={handleCreateTask} />
-        <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} />
+        <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} />
       </div>
     </div>
   )
