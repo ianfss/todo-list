@@ -1,23 +1,16 @@
 import { Task } from './task'
 import { TasksEmptyState } from './tasks-empty-state'
+
 import styles from './tasks.module.css'
 
-const tasks = [
-  {
-    text: 'Ler o livro "Desenvolvimento de Software"',
-    isCompleted: false
-  },
-  {
-    text: 'Fazer o desafio de React do Ignite',
-    isCompleted: false
-  },
-  {
-    text: 'Assistir aula de React Native',
-    isCompleted: false
-  }
-]
+interface TasksProps {
+  tasks: {
+    text: string
+    isCompleted: boolean
+  }[]
+}
 
-export function Tasks() {
+export function Tasks({ tasks }: TasksProps) {
   return (
     <div>
       <div className={styles.taskCount}>
@@ -35,13 +28,11 @@ export function Tasks() {
         tasks.length > 0
           ?
           tasks.map(task => (
-            <Task key={task.text} content={task.text} isCompleted />
+            <Task key={task.text} content={task.text} />
           ))
           :
           <TasksEmptyState />
       }
-
-
     </div>
   )
 }

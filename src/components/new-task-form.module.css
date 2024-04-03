@@ -5,6 +5,7 @@
 }
 
 .newTaskInput {
+  color: var(--gray-100);
   flex: 1;
   border: 0;
   border-radius: var(--radius);

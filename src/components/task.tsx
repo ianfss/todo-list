@@ -3,13 +3,13 @@ import styles from './task.module.css'
 
 interface TaskProps {
   content: string
-  isCompleted: boolean
+  // isCompleted: boolean
 }
 
-export function Task({ content, isCompleted}: TaskProps) {
+export function Task({ content }: TaskProps) {
   return (
     <div className={styles.task}>
-      <input type="checkbox" checked={isCompleted} />
+      <input type="checkbox" />
       <span>{content}</span>
       <button type='button'>
         <TrashIcon />
