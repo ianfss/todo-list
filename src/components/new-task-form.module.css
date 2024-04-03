@@ -1,0 +1,39 @@
+.newTaskForm {
+  margin-top: -1.6875rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newTaskInput {
+  flex: 1;
+  border: 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-700);
+  background: var(--gray-500);
+  padding: 1rem;
+}
+
+.newTaskButton {
+  font-size: var(--text-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  color: var(--gray-100);
+  border: 0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+
+  transition: background 0.1s;
+}
+
+.newTaskButton svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.newTaskButton:hover {
+  background: var(--primary-dark);
+}
